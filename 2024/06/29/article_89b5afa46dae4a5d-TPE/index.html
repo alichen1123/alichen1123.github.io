@@ -1,0 +1,1114 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8" >
+    <meta name="baidu-site-verification" content="dIcXMeY8Ya" />
+    
+    <title>以太坊的EIP-1559与Tezos的费用模型：一场革新与传统的较量 | 51币讯</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" >
+    <meta name="keywords" content="区块链, 加密货币, 币安, 51币讯" >
+    <meta name="description" content="51币讯-专注区块链和加密货币领域的最新资讯和深度分析。" >
+
+    
+    <link rel="alternative" href="/atom.xml" title="51币讯" type="application/atom+xml" >
+    
+    
+    <link rel="icon" href="/favicon.ico" >
+    
+    
+<link rel="stylesheet" href="/css/style.css?v=1719664672607.css">
+
+    <!--[if lt IE 9]>
+    
+<script src="/js/html5.js"></script>
+
+    <![endif]-->
+    
+
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body class="home">
+    <!--[if lt IE 9]>
+    <div class="browsehappy">
+        当前网页 <strong>不支持</strong>
+        你正在使用的浏览器. 为了正常的访问, 请 <a target="_blank" rel="noopener" href="http://browsehappy.com/">升级你的浏览器</a>.
+    </div>
+    <![endif]-->
+
+    <!-- 博客头部 -->
+    <header class="header">
+    <section class="container header-main">
+        <div class="logo">
+            <a href="/">
+                <div class="cover">
+                    <span class="name">51币讯</span>
+                    <span class="description">区块链与加密货币资讯</span>
+                </div>
+            </a>
+        </div>
+        <div class="dropnav iconfont icon-nav" id="JELON__btnDropNav"></div>
+        <ul class="menu hidden" id="JELON__menu">
+            
+            <li rel="/2024/06/29/article_89b5afa46dae4a5d-TPE/index.html" class="item ">
+                <a href="/" title="首页" class="iconfont icon-home">&nbsp;首页</a>
+            </li>
+            
+            <li rel="/2024/06/29/article_89b5afa46dae4a5d-TPE/index.html" class="item ">
+                <a href="/archives/" title="归档" class="iconfont icon-archives">&nbsp;归档</a>
+            </li>
+            
+            <li rel="/2024/06/29/article_89b5afa46dae4a5d-TPE/index.html" class="item ">
+                <a href="/about/" title="关于" class="iconfont icon-staff">&nbsp;关于</a>
+            </li>
+            
+            <li rel="/2024/06/29/article_89b5afa46dae4a5d-TPE/index.html" class="item ">
+                <a href="/comment/" title="留言" class="iconfont icon-comment">&nbsp;留言</a>
+            </li>
+            
+        </ul>
+        <div class="profile clearfix">
+            <div class="feeds fl">
+                
+                
+                <p class="links">
+                    
+                        <a href="https://github.com/alichen1123/alichen1123.github" target="_blank">Github</a>
+                        |
+                    
+                        <a href="https://51bixun.com" target="_blank">51币讯.com</a>
+                        
+                    
+                </p>
+                <p class="sns">
+                    
+                        <a href="https://www.binance.com/zh-CN/join?ref=RFHBT7IA" class="sinaweibo" target="_blank"><b>■</b> 币安邀请码</a>
+                    
+                        <a href="https://www.binance.com/zh-CN/join?ref=RFHBT7IA" class="qqweibo" target="_blank"><b>■</b> RFHBT7IA</a>
+                    
+                    <a href="javascript: void(0);" class="wechat">
+                        <b>■</b>
+                        公众号
+                        <span class="popover">
+                            <img src="/img/wechat_mp.jpg" width="120" height="120" alt="我的微信订阅号">
+                            <i class="arrow"></i>
+                        </span>
+                    </a>
+                </p>
+                
+            </div>
+            <div class="avatar fr">
+                <img src="/img/jelon.jpg" alt="avatar" title="Jelon" >
+            </div>
+        </div>
+    </section>
+</header>
+
+
+    <!-- 博客正文 -->
+    <div class="container body clearfix">
+        <section class="content">
+            <div class="content-main widget">
+                <!-- 文章页 -->
+<!-- 文章 -->
+<article class="post article">
+    <header class="text-center">
+        <h3 class="post-title"><span>以太坊的EIP-1559与Tezos的费用模型：一场革新与传统的较量</span></h3>
+    </header>
+    <p class="post-meta text-center">
+        Jelon 发表于
+        <time datetime="2024-06-29T12:20:29.756Z">2024-06-29</time>
+    </p>
+    <div id="JELON__articlePostContent" class="post-content">
+        <p><strong>🚀 币安 - 全球最大加密货币交易所-&lt;&lt;<a target="_blank" rel="noopener" href="https://www.binance.com/zh-CN/activity/referral/offers/claim?ref=RFHBT7IA">点击注册</a>&gt;</strong><br>💰 注册即享 20% 手续费返佣优惠<br>🔑 专属邀请码: RFHBT7IA</p>
+<h1 id="以太坊的EIP-1559与Tezos的费用模型：一场革新与传统的较量"><a href="#以太坊的EIP-1559与Tezos的费用模型：一场革新与传统的较量" class="headerlink" title="以太坊的EIP-1559与Tezos的费用模型：一场革新与传统的较量"></a>以太坊的EIP-1559与Tezos的费用模型：一场革新与传统的较量</h1><p>在区块链的世界里，交易费用模型是决定网络效率和用户体验的关键因素。以太坊，作为全球第二大区块链平台，通过EIP-1559（ Ethereum Improvement Proposal 1559）对交易费用进行了重大改革。与此同时，Tezos则坚持其独特的费用模型。本文将深入探讨这两者之间的差异，揭示它们如何影响各自的网络性能和用户参与度。</p>
+<p>币安作为世界上最大的加密货币交易所，非常值得信赖，<a target="_blank" rel="noopener" href="https://www.binance.com/zh-CN/join?ref=RFHBT7IA">点击注册</a>填写邀请码RFHBT7IA获得全网最大返佣！</p>
+<h2 id="1-EIP-1559：以太坊的燃烧机制"><a href="#1-EIP-1559：以太坊的燃烧机制" class="headerlink" title="1. EIP-1559：以太坊的燃烧机制"></a>1. EIP-1559：以太坊的燃烧机制</h2><h3 id="1-1-简介"><a href="#1-1-简介" class="headerlink" title="1.1 简介"></a>1.1 简介</h3><p>EIP-1559于2021年以太坊伦敦硬分叉中实施，引入了新的费用结构，包括基础费用、优先费和燃烧机制。基础费用是固定的，根据网络拥堵程度自动调整，而优先费则是可选的，用户可以通过支付额外费用来加快交易确认速度。关键的创新在于燃烧机制，基础费用的一部分会被永久性地从流通中移除，减少了以太坊的通货膨胀。</p>
+<h3 id="1-2-影响"><a href="#1-2-影响" class="headerlink" title="1.2 影响"></a>1.2 影响</h3><p>EIP-1559的主要目标是稳定交易费用，减少“竞价”现象，以及通过燃烧机制实现通缩。这使得交易者能更好地预测费用，降低了网络拥堵时的不确定性。然而，燃烧机制也引发了争议，因为它影响了矿工的收入结构，可能导致矿工的反对。</p>
+<h2 id="2-Tezos：智能经济模型的实践者"><a href="#2-Tezos：智能经济模型的实践者" class="headerlink" title="2. Tezos：智能经济模型的实践者"></a>2. Tezos：智能经济模型的实践者</h2><h3 id="2-1-简介"><a href="#2-1-简介" class="headerlink" title="2.1 简介"></a>2.1 简介</h3><p>Tezos的费用模型基于其独特的自我修正和治理机制。在Tezos中，交易费用由发送方和验证者协商决定，验证者根据他们为网络提供的服务收取费用。这种模型旨在通过市场机制来平衡费用，避免拥堵时的费用飙升。</p>
+<h3 id="2-2-影响"><a href="#2-2-影响" class="headerlink" title="2.2 影响"></a>2.2 影响</h3><p>Tezos的费用模型鼓励了社区参与和自我调节，因为验证者和用户都有动力保持网络的健康运行。然而，这种灵活性也可能导致费用波动较大，特别是在网络活动不稳定时。</p>
+<h2 id="3-对比与分析"><a href="#3-对比与分析" class="headerlink" title="3. 对比与分析"></a>3. 对比与分析</h2><h3 id="3-1-费用透明度"><a href="#3-1-费用透明度" class="headerlink" title="3.1 费用透明度"></a>3.1 费用透明度</h3><p>EIP-1559通过自动调整基础费用，提高了交易费用的透明度，用户可以预估费用。相比之下，Tezos的协商机制可能导致费用波动，用户需要实时关注市场情况。</p>
+<h3 id="3-2-矿工收入与网络稳定性"><a href="#3-2-矿工收入与网络稳定性" class="headerlink" title="3.2 矿工收入与网络稳定性"></a>3.2 矿工收入与网络稳定性</h3><p>EIP-1559的燃烧机制减少了矿工的收入，但有助于网络的长期稳定。Tezos的模型则鼓励矿工参与网络治理，通过提供服务获取收益，这可能带来更稳定的矿工生态。</p>
+<h3 id="3-3-治理与社区参与"><a href="#3-3-治理与社区参与" class="headerlink" title="3.3 治理与社区参与"></a>3.3 治理与社区参与</h3><p>Tezos的自我修正机制使社区在决策中发挥更大作用，而EIP-1559的改变主要通过硬分叉实现，社区参与程度相对较低。</p>
+<h2 id="4-结论：革新与传统的对话"><a href="#4-结论：革新与传统的对话" class="headerlink" title="4. 结论：革新与传统的对话"></a>4. 结论：革新与传统的对话</h2><p>以太坊的EIP-1559和Tezos的费用模型代表了区块链费用管理的两种不同哲学。EIP-1559的改革试图通过减少费用波动和通货膨胀来提升用户体验，而Tezos则坚持市场驱动的机制，鼓励社区参与和自我调节。这两种模式都有其优点和挑战，未来区块链网络可能会结合两者的优势，创造出更完善的费用管理方案。</p>
+<p>无论你是一名以太坊的忠实用户，还是Tezos的探索者，理解这些差异都能帮助你更好地评估各自网络的优劣，为自己的投资和使用决策提供依据。在区块链的快速发展中，我们期待看到更多创新的费用模型涌现，为这个领域带来更多的可能性。</p>
+<hr>
+<h3 id="参考资料与进一步阅读"><a href="#参考资料与进一步阅读" class="headerlink" title="参考资料与进一步阅读"></a>参考资料与进一步阅读</h3><ol>
+<li>EIP-1559: <a target="_blank" rel="noopener" href="https://www.binance.com/zh-CN/join?ref=RFHBT7IA">https://eips.ethereum.org/EIPS/eip-1559</a></li>
+<li>Tezos费用模型: <a target="_blank" rel="noopener" href="https://www.binance.com/zh-CN/join?ref=RFHBT7IA">https://tezos.com/learn/tezos-101/fees</a></li>
+<li>Tezos自我修正机制: <a target="_blank" rel="noopener" href="https://www.binance.com/zh-CN/join?ref=RFHBT7IA">https://tezos.com/learn/tezos-101/governance</a></li>
+</ol>
+<hr>
+<p><strong>注：</strong>本文旨在提供信息，不构成投资建议。请在进行任何投资决策前，进行充分的研究和了解。</p>
+<p>通过本文的指南，相信你已经了解了一部分加密货币的知识，现在赶快填写邀请码RFHBT7IA开始你在币安交易所的数字资产之旅吧！</p>
+<hr>
+<blockquote>
+<p><strong>🎁通过本文的指南，相信你已经了解了一部分加密货币的知识，币安作为世界上最大的加密货币交易所，非常值得信赖，👉<a target="_blank" rel="noopener" href="https://www.binance.com/zh-CN/join?ref=RFHBT7IA">点击优惠链接进行注册</a>填写邀请码RFHBT7IA获得全网最大返佣！👈</strong></p>
+</blockquote>
+<p>关键词：以太坊, 区块链, 交易, 交易所</p>
+<hr>
+
+    </div>
+    <p class="eof">-- EOF --</p>
+    <p class="post-meta">
+        <span class="post-cat">分类：
+            <a class="cat-link" href="/categories/%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E4%BA%A4%E6%98%93%E7%AD%96%E7%95%A5-%E4%BA%A4%E6%98%93%E5%B9%B3%E5%8F%B0/">数字资产 - 交易策略 - 交易平台</a>
+        </span>
+        <span class="post-tags">
+            标签：
+            
+    
+        <a href="/tags/%E5%8E%BB%E4%B8%AD%E5%BF%83%E5%8C%96%E4%BA%A4%E6%98%93%E6%89%80-%E5%8D%96%E5%87%BA-%E8%AE%A2%E5%8D%95%E7%B0%BF-%E6%B5%81%E5%8A%A8%E6%80%A7-POS/" title="去中心化交易所 - 卖出 - 订单簿 - 流动性 - POS">去中心化交易所 - 卖出 - 订单簿 - 流动性 - POS</a>
+    
+
+        </span>
+    </p>
+</article>
+<!-- 分享按钮 -->
+
+  <div class="article-share clearfix text-center">
+    <div class="share-area">
+      <span class="share-txt">分享到：</span>
+      <a href="javascript: window.open('http://service.weibo.com/share/share.php?url=' + encodeURIComponent(location.href) + '&title=' + document.title + '&language=zh_cn');" class="share-icon weibo"></a>
+      <a href="javascript: alert('请复制链接到微信并发送');" class="share-icon wechat"></a>
+      <a href="javascript: window.open('http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=' + encodeURIComponent(location.href) + '&title=' + document.title);" class="share-icon qqzone"></a>
+      <a href="javascript: window.open('http://connect.qq.com/widget/shareqq/index.html?url=' + encodeURIComponent(location.href) + '&desc=Jelon个人博客&title=' + document.title + '&callback=' + encodeURIComponent(location.href));" class="share-icon qq"></a>
+      <a href="javascript: window.open('http://shuo.douban.com/!service/share?href=' + encodeURIComponent(location.href) + '&name=' + document.title + '&text=' + document.title);" class="share-icon douban"></a>
+    </div>
+  </div>
+
+
+<!-- 上一篇/下一篇 -->
+
+<div class="article-nav clearfix">
+    
+    <span class="prev fl">
+        上一篇<br >
+        <a href="/2024/06/29/article_89b5afa48b8f4a1c-TPE/">
+            
+                区块链的去中心化数据市场：重塑数据经济的未来
+            
+        </a>
+    </span>
+    
+
+    
+    <span class="next fr">
+        下一篇<br >
+        <a href="/2024/06/29/article_89b5afc48ca3828e-TPE/">
+            
+                区块链的隐私保护与监管平衡：探索加密世界的透明与隐秘
+            
+        </a>
+    </span>
+    
+</div>
+
+<!-- 文章评论 -->
+
+
+
+            </div>
+        </section>
+        <!-- 侧栏部分 -->
+<aside class="sidebar">
+    
+    <section class="widget">
+        <h3 class="widget-hd"><strong>文章搜索</strong></h3>
+        <div class="search-form">
+  <form
+    id="searchForm"
+    method="GET"
+    action="https://www.baidu.com/s"
+    ectype="application/x-www-form-urlencoded"
+    target="_blank"
+    autocomplete="false"
+    onsubmit="javascript: return false;">
+    <input
+      id="searchKeyword"
+      type="text"
+      class="form-control"
+      placeholder="输入关键字搜索"
+      autocomplete="false"
+    />
+    <input id="searchKeywordHidden" type="hidden" name="wd" />
+    <input id="searchButton" class="btn" type="submit" value="搜索" />
+  </form>
+</div>
+    </section>
+    
+
+    <section class="widget">
+        <h3 class="widget-hd"><strong>文章分类</strong></h3>
+        <!-- 文章分类 -->
+<ul class="widget-bd">
+    
+    <li>
+        <a href="/categories/%E5%B8%81%E5%AE%89/">币安</a>
+        <span class="badge">(3)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%9F%BA%E7%A1%80/">区块链基础</a>
+        <span class="badge">(4)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E5%8E%BB%E4%B8%AD%E5%BF%83%E5%8C%96%E5%BA%94%E7%94%A8/">去中心化应用</a>
+        <span class="badge">(4)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E6%8A%95%E8%B5%84%E7%AD%96%E7%95%A5/">投资策略</a>
+        <span class="badge">(2)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E4%BA%A4%E6%98%93%E6%89%80%E6%95%99%E7%A8%8B/">交易所教程</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E4%BA%A4%E6%98%93%E7%AD%96%E7%95%A5-%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF-%E5%8A%A0%E5%AF%86%E8%B4%A7%E5%B8%81/">交易策略 - 区块链技术 - 加密货币</a>
+        <span class="badge">(52)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E4%BA%A4%E6%98%93%E7%AD%96%E7%95%A5-%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF/">交易策略 - 数字资产 - 区块链技术</a>
+        <span class="badge">(82)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E5%8C%BF%E5%90%8D%E5%8A%A0%E5%AF%86%E8%B4%A7%E5%B8%81-%E4%BA%A4%E6%98%93%E7%AD%96%E7%95%A5-%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7/">匿名加密货币 - 交易策略 - 数字资产</a>
+        <span class="badge">(6)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E4%BA%A4%E6%98%93%E7%AD%96%E7%95%A5-%E4%BA%A4%E6%98%93%E5%B9%B3%E5%8F%B0-%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7/">交易策略 - 交易平台 - 数字资产</a>
+        <span class="badge">(302)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E8%B5%84%E4%BA%A7%E5%AE%89%E5%85%A8-%E4%BA%A4%E6%98%93%E7%AD%96%E7%95%A5-%E4%BA%A4%E6%98%93%E5%B9%B3%E5%8F%B0/">资产安全 - 交易策略 - 交易平台</a>
+        <span class="badge">(10)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%BA%94%E7%94%A8-%E4%BA%A4%E6%98%93%E7%AD%96%E7%95%A5-%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF/">区块链应用 - 交易策略 - 区块链技术</a>
+        <span class="badge">(8)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%BA%94%E7%94%A8-%E4%BA%A4%E6%98%93%E7%AD%96%E7%95%A5-%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7/">区块链应用 - 交易策略 - 数字资产</a>
+        <span class="badge">(25)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E4%BA%A4%E6%98%93%E7%AD%96%E7%95%A5-%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E5%8A%A0%E5%AF%86%E7%BB%8F%E6%B5%8E%E5%AD%A6/">交易策略 - 数字资产 - 加密经济学</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%BA%94%E7%94%A8-%E9%9D%9E%E5%90%8C%E8%B4%A8%E5%8C%96%E4%BB%A3%E5%B8%81-%E4%BA%A4%E6%98%93%E7%AD%96%E7%95%A5/">区块链应用 - 非同质化代币 - 交易策略</a>
+        <span class="badge">(20)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E4%BA%A4%E6%98%93%E7%AD%96%E7%95%A5-%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E8%B5%84%E4%BA%A7%E5%AE%89%E5%85%A8/">交易策略 - 数字资产 - 资产安全</a>
+        <span class="badge">(20)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E4%BA%A4%E6%98%93%E7%AD%96%E7%95%A5-%E5%8E%BB%E4%B8%AD%E5%BF%83%E5%8C%96%E9%87%91%E8%9E%8D-%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF/">交易策略 - 去中心化金融 - 区块链技术</a>
+        <span class="badge">(15)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E9%9D%9E%E5%90%8C%E8%B4%A8%E5%8C%96%E4%BB%A3%E5%B8%81-%E4%BA%A4%E6%98%93%E7%AD%96%E7%95%A5-%E5%8E%BB%E4%B8%AD%E5%BF%83%E5%8C%96%E9%87%91%E8%9E%8D/">非同质化代币 - 交易策略 - 去中心化金融</a>
+        <span class="badge">(33)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E4%BA%A4%E6%98%93%E7%AD%96%E7%95%A5-%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E5%8A%A0%E5%AF%86%E8%B4%A7%E5%B8%81/">交易策略 - 数字资产 - 加密货币</a>
+        <span class="badge">(7)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%BA%94%E7%94%A8-%E4%BA%A4%E6%98%93%E7%AD%96%E7%95%A5-%E5%8E%BB%E4%B8%AD%E5%BF%83%E5%8C%96%E9%87%91%E8%9E%8D/">区块链应用 - 交易策略 - 去中心化金融</a>
+        <span class="badge">(8)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E5%8C%BF%E5%90%8D%E5%8A%A0%E5%AF%86%E8%B4%A7%E5%B8%81-%E5%8C%BA%E5%9D%97%E9%93%BE%E5%BA%94%E7%94%A8-%E4%BA%A4%E6%98%93%E7%AD%96%E7%95%A5/">匿名加密货币 - 区块链应用 - 交易策略</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E5%8C%BF%E5%90%8D%E5%8A%A0%E5%AF%86%E8%B4%A7%E5%B8%81-%E9%9D%9E%E5%90%8C%E8%B4%A8%E5%8C%96%E4%BB%A3%E5%B8%81-%E4%BA%A4%E6%98%93%E7%AD%96%E7%95%A5/">匿名加密货币 - 非同质化代币 - 交易策略</a>
+        <span class="badge">(4)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E4%BA%A4%E6%98%93%E7%AD%96%E7%95%A5-%E5%8E%BB%E4%B8%AD%E5%BF%83%E5%8C%96%E9%87%91%E8%9E%8D-%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7/">交易策略 - 去中心化金融 - 数字资产</a>
+        <span class="badge">(8)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E4%BA%A4%E6%98%93%E7%AD%96%E7%95%A5-%E4%BA%A4%E6%98%93%E5%B9%B3%E5%8F%B0/">数字资产 - 交易策略 - 交易平台</a>
+        <span class="badge">(135)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E4%BA%A4%E6%98%93%E7%AD%96%E7%95%A5-%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF-%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7/">交易策略 - 区块链技术 - 数字资产</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E4%BA%A4%E6%98%93%E7%AD%96%E7%95%A5-%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E4%BA%A4%E6%98%93%E5%B9%B3%E5%8F%B0/">交易策略 - 数字资产 - 交易平台</a>
+        <span class="badge">(440)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E5%8C%BF%E5%90%8D%E5%8A%A0%E5%AF%86%E8%B4%A7%E5%B8%81-%E4%BA%A4%E6%98%93%E7%AD%96%E7%95%A5-%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF/">匿名加密货币 - 交易策略 - 区块链技术</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E8%B5%84%E4%BA%A7%E5%AE%89%E5%85%A8-%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF-%E4%BA%A4%E6%98%93%E5%B9%B3%E5%8F%B0/">资产安全 - 区块链技术 - 交易平台</a>
+        <span class="badge">(45)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E8%B5%84%E4%BA%A7%E5%AE%89%E5%85%A8-%E5%8C%BA%E5%9D%97%E9%93%BE%E4%BA%92%E6%93%8D%E4%BD%9C%E6%80%A7-%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF/">资产安全 - 区块链互操作性 - 区块链技术</a>
+        <span class="badge">(4)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF-%E4%BA%A4%E6%98%93%E5%B9%B3%E5%8F%B0-%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7/">区块链技术 - 交易平台 - 数字资产</a>
+        <span class="badge">(6)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E4%BA%A4%E6%98%93%E5%B9%B3%E5%8F%B0-%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF-%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7/">交易平台 - 区块链技术 - 数字资产</a>
+        <span class="badge">(8)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E8%B5%84%E4%BA%A7%E5%AE%89%E5%85%A8-%E4%BA%A4%E6%98%93%E5%B9%B3%E5%8F%B0-%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7/">资产安全 - 交易平台 - 数字资产</a>
+        <span class="badge">(5)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E5%8C%BA%E5%9D%97%E9%93%BE%E4%BA%92%E6%93%8D%E4%BD%9C%E6%80%A7-%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF-%E4%BA%A4%E6%98%93%E5%B9%B3%E5%8F%B0/">区块链互操作性 - 区块链技术 - 交易平台</a>
+        <span class="badge">(6)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF-%E4%BA%A4%E6%98%93%E5%B9%B3%E5%8F%B0-%E5%8E%BB%E4%B8%AD%E5%BF%83%E5%8C%96%E9%87%91%E8%9E%8D/">区块链技术 - 交易平台 - 去中心化金融</a>
+        <span class="badge">(12)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E8%B5%84%E4%BA%A7%E5%AE%89%E5%85%A8-%E4%BA%A4%E6%98%93%E5%B9%B3%E5%8F%B0-%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF/">资产安全 - 交易平台 - 区块链技术</a>
+        <span class="badge">(3)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E8%B5%84%E4%BA%A7%E5%AE%89%E5%85%A8-%E4%BA%A4%E6%98%93%E5%B9%B3%E5%8F%B0-%E4%BA%A4%E6%98%93%E7%AD%96%E7%95%A5/">资产安全 - 交易平台 - 交易策略</a>
+        <span class="badge">(3)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E8%B5%84%E4%BA%A7%E5%AE%89%E5%85%A8-%E4%BA%A4%E6%98%93%E5%B9%B3%E5%8F%B0-%E5%8E%BB%E4%B8%AD%E5%BF%83%E5%8C%96%E9%87%91%E8%9E%8D/">资产安全 - 交易平台 - 去中心化金融</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E4%BA%A4%E6%98%93%E5%B9%B3%E5%8F%B0-%E4%BA%A4%E6%98%93%E7%AD%96%E7%95%A5-%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7/">交易平台 - 交易策略 - 数字资产</a>
+        <span class="badge">(2)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E5%8C%BA%E5%9D%97%E9%93%BE%E4%BA%92%E6%93%8D%E4%BD%9C%E6%80%A7-%E4%BA%A4%E6%98%93%E5%B9%B3%E5%8F%B0-%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF/">区块链互操作性 - 交易平台 - 区块链技术</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E8%B5%84%E4%BA%A7%E5%AE%89%E5%85%A8-%E5%8C%BA%E5%9D%97%E9%93%BE%E4%BA%92%E6%93%8D%E4%BD%9C%E6%80%A7-%E4%BA%A4%E6%98%93%E5%B9%B3%E5%8F%B0/">资产安全 - 区块链互操作性 - 交易平台</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E4%BA%A4%E6%98%93%E5%B9%B3%E5%8F%B0-%E5%8A%A0%E5%AF%86%E8%B4%A7%E5%B8%81%E7%9B%91%E7%AE%A1-%E4%BA%A4%E6%98%93%E7%AD%96%E7%95%A5/">交易平台 - 加密货币监管 - 交易策略</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E5%8A%A0%E5%AF%86%E8%B4%A7%E5%B8%81-%E4%BA%A4%E6%98%93%E7%AD%96%E7%95%A5-%E4%BA%A4%E6%98%93%E5%B9%B3%E5%8F%B0/">加密货币 - 交易策略 - 交易平台</a>
+        <span class="badge">(2477)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E5%8A%A0%E5%AF%86%E8%B4%A7%E5%B8%81-%E5%8C%BA%E5%9D%97%E9%93%BE%E4%BA%92%E6%93%8D%E4%BD%9C%E6%80%A7-%E4%BA%A4%E6%98%93%E7%AD%96%E7%95%A5/">加密货币 - 区块链互操作性 - 交易策略</a>
+        <span class="badge">(162)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E4%BA%A4%E6%98%93%E7%AD%96%E7%95%A5-%E4%BA%A4%E6%98%93%E5%B9%B3%E5%8F%B0-%E5%B8%82%E5%9C%BA%E8%B6%8B%E5%8A%BF/">交易策略 - 交易平台 - 市场趋势</a>
+        <span class="badge">(165)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E5%8C%BA%E5%9D%97%E9%93%BE%E4%BA%92%E6%93%8D%E4%BD%9C%E6%80%A7-%E4%BA%A4%E6%98%93%E7%AD%96%E7%95%A5-%E4%BA%A4%E6%98%93%E5%B9%B3%E5%8F%B0/">区块链互操作性 - 交易策略 - 交易平台</a>
+        <span class="badge">(95)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E4%BA%A4%E6%98%93%E7%AD%96%E7%95%A5-%E5%8A%A0%E5%AF%86%E8%B4%A7%E5%B8%81%E7%9B%91%E7%AE%A1-%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7/">交易策略 - 加密货币监管 - 数字资产</a>
+        <span class="badge">(109)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E4%BA%A4%E6%98%93%E7%AD%96%E7%95%A5-%E4%BA%A4%E6%98%93%E5%B9%B3%E5%8F%B0-%E8%B5%84%E4%BA%A7%E5%AE%89%E5%85%A8/">交易策略 - 交易平台 - 资产安全</a>
+        <span class="badge">(391)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E4%BA%A4%E6%98%93%E7%AD%96%E7%95%A5-%E4%BA%A4%E6%98%93%E5%B9%B3%E5%8F%B0-%E5%8C%BA%E5%9D%97%E9%93%BE%E5%BA%94%E7%94%A8/">交易策略 - 交易平台 - 区块链应用</a>
+        <span class="badge">(136)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E4%BA%A4%E6%98%93%E7%AD%96%E7%95%A5-%E4%BA%A4%E6%98%93%E5%B9%B3%E5%8F%B0-%E5%8E%BB%E4%B8%AD%E5%BF%83%E5%8C%96%E9%87%91%E8%9E%8D/">交易策略 - 交易平台 - 去中心化金融</a>
+        <span class="badge">(87)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E4%BA%A4%E6%98%93%E7%AD%96%E7%95%A5-%E4%BA%A4%E6%98%93%E5%B9%B3%E5%8F%B0-%E5%8A%A0%E5%AF%86%E7%BB%8F%E6%B5%8E%E5%AD%A6/">交易策略 - 交易平台 - 加密经济学</a>
+        <span class="badge">(25)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E4%BA%A4%E6%98%93%E7%AD%96%E7%95%A5-%E4%BA%A4%E6%98%93%E5%B9%B3%E5%8F%B0-%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF/">交易策略 - 交易平台 - 区块链技术</a>
+        <span class="badge">(42)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E4%BA%A4%E6%98%93%E7%AD%96%E7%95%A5-%E4%BA%A4%E6%98%93%E5%B9%B3%E5%8F%B0-%E5%8C%BA%E5%9D%97%E9%93%BE%E7%89%B9%E6%80%A7/">交易策略 - 交易平台 - 区块链特性</a>
+        <span class="badge">(65)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E4%BA%A4%E6%98%93%E7%AD%96%E7%95%A5-%E4%BA%A4%E6%98%93%E5%B9%B3%E5%8F%B0-%E6%89%A9%E5%B1%95%E6%80%A7%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">交易策略 - 交易平台 - 扩展性解决方案</a>
+        <span class="badge">(2)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E4%BA%A4%E6%98%93%E7%AD%96%E7%95%A5-%E4%BA%A4%E6%98%93%E5%B9%B3%E5%8F%B0-%E9%9D%9E%E5%90%8C%E8%B4%A8%E5%8C%96%E4%BB%A3%E5%B8%81/">交易策略 - 交易平台 - 非同质化代币</a>
+        <span class="badge">(3)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E5%8C%BA%E5%9D%97%E9%93%BE%E7%89%B9%E6%80%A7-%E5%8C%BA%E5%9D%97%E9%93%BE%E5%BA%94%E7%94%A8/">数字资产 - 区块链特性 - 区块链应用</a>
+        <span class="badge">(395)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E6%89%A9%E5%B1%95%E6%80%A7%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88-%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E5%8C%BA%E5%9D%97%E9%93%BE%E7%89%B9%E6%80%A7/">扩展性解决方案 - 数字资产 - 区块链特性</a>
+        <span class="badge">(96)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E5%8C%BA%E5%9D%97%E9%93%BE%E7%89%B9%E6%80%A7-%E5%8A%A0%E5%AF%86%E8%B4%A7%E5%B8%81/">数字资产 - 区块链特性 - 加密货币</a>
+        <span class="badge">(576)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E5%8C%BA%E5%9D%97%E9%93%BE%E4%BA%92%E6%93%8D%E4%BD%9C%E6%80%A7-%E5%8A%A0%E5%AF%86%E8%B4%A7%E5%B8%81/">数字资产 - 区块链互操作性 - 加密货币</a>
+        <span class="badge">(22)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E5%8A%A0%E5%AF%86%E8%B4%A7%E5%B8%81-%E5%8C%BA%E5%9D%97%E9%93%BE%E5%BA%94%E7%94%A8/">数字资产 - 加密货币 - 区块链应用</a>
+        <span class="badge">(102)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E5%8C%BA%E5%9D%97%E9%93%BE%E7%89%B9%E6%80%A7-%E5%8C%BA%E5%9D%97%E9%93%BE%E4%BA%92%E6%93%8D%E4%BD%9C%E6%80%A7/">数字资产 - 区块链特性 - 区块链互操作性</a>
+        <span class="badge">(209)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E6%89%A9%E5%B1%95%E6%80%A7%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88-%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E5%8C%BA%E5%9D%97%E9%93%BE%E5%BA%94%E7%94%A8/">扩展性解决方案 - 数字资产 - 区块链应用</a>
+        <span class="badge">(29)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E5%8C%BA%E5%9D%97%E9%93%BE%E4%BA%92%E6%93%8D%E4%BD%9C%E6%80%A7-%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF/">数字资产 - 区块链互操作性 - 区块链技术</a>
+        <span class="badge">(32)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E5%8A%A0%E5%AF%86%E8%B4%A7%E5%B8%81-%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF/">数字资产 - 加密货币 - 区块链技术</a>
+        <span class="badge">(68)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E6%89%A9%E5%B1%95%E6%80%A7%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88-%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF/">扩展性解决方案 - 数字资产 - 区块链技术</a>
+        <span class="badge">(53)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E5%8C%BA%E5%9D%97%E9%93%BE%E5%BA%94%E7%94%A8-%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF/">数字资产 - 区块链应用 - 区块链技术</a>
+        <span class="badge">(38)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E5%8A%A0%E5%AF%86%E7%BB%8F%E6%B5%8E%E5%AD%A6-%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF/">加密经济学 - 数字资产 - 区块链技术</a>
+        <span class="badge">(6)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E5%8C%BA%E5%9D%97%E9%93%BE%E4%BA%92%E6%93%8D%E4%BD%9C%E6%80%A7-%E5%8C%BA%E5%9D%97%E9%93%BE%E5%BA%94%E7%94%A8/">数字资产 - 区块链互操作性 - 区块链应用</a>
+        <span class="badge">(177)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF-%E4%BA%A4%E6%98%93%E7%AD%96%E7%95%A5/">数字资产 - 区块链技术 - 交易策略</a>
+        <span class="badge">(1380)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E5%8C%BA%E5%9D%97%E9%93%BE%E7%89%B9%E6%80%A7-%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF/">数字资产 - 区块链特性 - 区块链技术</a>
+        <span class="badge">(63)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E5%8A%A0%E5%AF%86%E7%BB%8F%E6%B5%8E%E5%AD%A6-%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E5%8C%BA%E5%9D%97%E9%93%BE%E7%89%B9%E6%80%A7/">加密经济学 - 数字资产 - 区块链特性</a>
+        <span class="badge">(48)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E5%8C%BF%E5%90%8D%E5%8A%A0%E5%AF%86%E8%B4%A7%E5%B8%81-%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E5%8C%BA%E5%9D%97%E9%93%BE%E7%89%B9%E6%80%A7/">匿名加密货币 - 数字资产 - 区块链特性</a>
+        <span class="badge">(20)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E5%8A%A0%E5%AF%86%E8%B4%A7%E5%B8%81-%E4%BA%A4%E6%98%93%E7%AD%96%E7%95%A5/">数字资产 - 加密货币 - 交易策略</a>
+        <span class="badge">(16)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E8%B5%84%E4%BA%A7%E5%AE%89%E5%85%A8-%E4%BA%A4%E6%98%93%E7%AD%96%E7%95%A5/">数字资产 - 资产安全 - 交易策略</a>
+        <span class="badge">(9)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E5%8E%BB%E4%B8%AD%E5%BF%83%E5%8C%96%E9%87%91%E8%9E%8D-%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E4%BA%A4%E6%98%93%E7%AD%96%E7%95%A5/">去中心化金融 - 数字资产 - 交易策略</a>
+        <span class="badge">(2)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF-%E5%8E%BB%E4%B8%AD%E5%BF%83%E5%8C%96%E9%87%91%E8%9E%8D/">数字资产 - 区块链技术 - 去中心化金融</a>
+        <span class="badge">(2)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E5%8A%A0%E5%AF%86%E8%B4%A7%E5%B8%81%E7%9B%91%E7%AE%A1-%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E5%8C%BA%E5%9D%97%E9%93%BE%E7%89%B9%E6%80%A7/">加密货币监管 - 数字资产 - 区块链特性</a>
+        <span class="badge">(8)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E8%B5%84%E4%BA%A7%E5%AE%89%E5%85%A8-%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF/">数字资产 - 资产安全 - 区块链技术</a>
+        <span class="badge">(7)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E6%89%A9%E5%B1%95%E6%80%A7%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88-%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E5%8C%BA%E5%9D%97%E9%93%BE%E4%BA%92%E6%93%8D%E4%BD%9C%E6%80%A7/">扩展性解决方案 - 数字资产 - 区块链互操作性</a>
+        <span class="badge">(13)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E4%BA%A4%E6%98%93%E7%AD%96%E7%95%A5-%E5%8A%A0%E5%AF%86%E8%B4%A7%E5%B8%81/">数字资产 - 交易策略 - 加密货币</a>
+        <span class="badge">(6)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E5%8C%BA%E5%9D%97%E9%93%BE%E7%89%B9%E6%80%A7-%E9%9D%9E%E5%90%8C%E8%B4%A8%E5%8C%96%E4%BB%A3%E5%B8%81/">数字资产 - 区块链特性 - 非同质化代币</a>
+        <span class="badge">(2)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E5%8C%BA%E5%9D%97%E9%93%BE%E5%BA%94%E7%94%A8-%E8%B5%84%E4%BA%A7%E5%AE%89%E5%85%A8/">数字资产 - 区块链应用 - 资产安全</a>
+        <span class="badge">(43)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E5%8A%A0%E5%AF%86%E8%B4%A7%E5%B8%81%E7%9B%91%E7%AE%A1-%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E5%8C%BA%E5%9D%97%E9%93%BE%E4%BA%92%E6%93%8D%E4%BD%9C%E6%80%A7/">加密货币监管 - 数字资产 - 区块链互操作性</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E5%8C%BF%E5%90%8D%E5%8A%A0%E5%AF%86%E8%B4%A7%E5%B8%81-%E6%89%A9%E5%B1%95%E6%80%A7%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88-%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7/">匿名加密货币 - 扩展性解决方案 - 数字资产</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E4%BA%A4%E6%98%93%E7%AD%96%E7%95%A5-%E5%B8%82%E5%9C%BA%E8%B6%8B%E5%8A%BF/">数字资产 - 交易策略 - 市场趋势</a>
+        <span class="badge">(2)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E9%9D%9E%E5%90%8C%E8%B4%A8%E5%8C%96%E4%BB%A3%E5%B8%81-%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF/">数字资产 - 非同质化代币 - 区块链技术</a>
+        <span class="badge">(2)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E5%8C%BF%E5%90%8D%E5%8A%A0%E5%AF%86%E8%B4%A7%E5%B8%81-%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E5%8A%A0%E5%AF%86%E8%B4%A7%E5%B8%81/">匿名加密货币 - 数字资产 - 加密货币</a>
+        <span class="badge">(14)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E5%8A%A0%E5%AF%86%E8%B4%A7%E5%B8%81%E7%9B%91%E7%AE%A1-%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E5%8A%A0%E5%AF%86%E8%B4%A7%E5%B8%81/">加密货币监管 - 数字资产 - 加密货币</a>
+        <span class="badge">(2)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E5%8C%BA%E5%9D%97%E9%93%BE%E7%89%B9%E6%80%A7-%E8%B5%84%E4%BA%A7%E5%AE%89%E5%85%A8/">数字资产 - 区块链特性 - 资产安全</a>
+        <span class="badge">(5)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E5%B8%82%E5%9C%BA%E8%B6%8B%E5%8A%BF-%E5%8A%A0%E5%AF%86%E8%B4%A7%E5%B8%81/">数字资产 - 市场趋势 - 加密货币</a>
+        <span class="badge">(4)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E5%8C%BA%E5%9D%97%E9%93%BE%E7%89%B9%E6%80%A7-%E5%B8%82%E5%9C%BA%E8%B6%8B%E5%8A%BF/">数字资产 - 区块链特性 - 市场趋势</a>
+        <span class="badge">(10)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E5%8A%A0%E5%AF%86%E8%B4%A7%E5%B8%81-%E8%B5%84%E4%BA%A7%E5%AE%89%E5%85%A8/">数字资产 - 加密货币 - 资产安全</a>
+        <span class="badge">(14)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E5%8E%BB%E4%B8%AD%E5%BF%83%E5%8C%96%E9%87%91%E8%9E%8D-%E4%BA%A4%E6%98%93%E7%AD%96%E7%95%A5/">数字资产 - 去中心化金融 - 交易策略</a>
+        <span class="badge">(24)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E5%B8%82%E5%9C%BA%E8%B6%8B%E5%8A%BF-%E8%B5%84%E4%BA%A7%E5%AE%89%E5%85%A8/">数字资产 - 市场趋势 - 资产安全</a>
+        <span class="badge">(2)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E5%8A%A0%E5%AF%86%E7%BB%8F%E6%B5%8E%E5%AD%A6-%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E5%8C%BA%E5%9D%97%E9%93%BE%E5%BA%94%E7%94%A8/">加密经济学 - 数字资产 - 区块链应用</a>
+        <span class="badge">(2)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E5%8C%BA%E5%9D%97%E9%93%BE%E5%BA%94%E7%94%A8-%E9%9D%9E%E5%90%8C%E8%B4%A8%E5%8C%96%E4%BB%A3%E5%B8%81/">数字资产 - 区块链应用 - 非同质化代币</a>
+        <span class="badge">(2)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E5%8C%BF%E5%90%8D%E5%8A%A0%E5%AF%86%E8%B4%A7%E5%B8%81-%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF/">匿名加密货币 - 数字资产 - 区块链技术</a>
+        <span class="badge">(2)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E5%8A%A0%E5%AF%86%E8%B4%A7%E5%B8%81-%E5%B8%82%E5%9C%BA%E8%B6%8B%E5%8A%BF/">数字资产 - 加密货币 - 市场趋势</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E5%B8%82%E5%9C%BA%E8%B6%8B%E5%8A%BF-%E5%8C%BA%E5%9D%97%E9%93%BE%E5%BA%94%E7%94%A8/">数字资产 - 市场趋势 - 区块链应用</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E5%8A%A0%E5%AF%86%E8%B4%A7%E5%B8%81-%E9%9D%9E%E5%90%8C%E8%B4%A8%E5%8C%96%E4%BB%A3%E5%B8%81/">数字资产 - 加密货币 - 非同质化代币</a>
+        <span class="badge">(2)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E6%89%A9%E5%B1%95%E6%80%A7%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88-%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E9%9D%9E%E5%90%8C%E8%B4%A8%E5%8C%96%E4%BB%A3%E5%B8%81/">扩展性解决方案 - 数字资产 - 非同质化代币</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E5%8A%A0%E5%AF%86%E7%BB%8F%E6%B5%8E%E5%AD%A6-%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E5%8C%BA%E5%9D%97%E9%93%BE%E4%BA%92%E6%93%8D%E4%BD%9C%E6%80%A7/">加密经济学 - 数字资产 - 区块链互操作性</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E6%89%A9%E5%B1%95%E6%80%A7%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88-%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E5%8A%A0%E5%AF%86%E8%B4%A7%E5%B8%81/">扩展性解决方案 - 数字资产 - 加密货币</a>
+        <span class="badge">(2)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E5%8A%A0%E5%AF%86%E7%BB%8F%E6%B5%8E%E5%AD%A6-%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E5%8A%A0%E5%AF%86%E8%B4%A7%E5%B8%81/">加密经济学 - 数字资产 - 加密货币</a>
+        <span class="badge">(2)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E5%8E%BB%E4%B8%AD%E5%BF%83%E5%8C%96%E9%87%91%E8%9E%8D-%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF/">数字资产 - 去中心化金融 - 区块链技术</a>
+        <span class="badge">(661)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E5%8A%A0%E5%AF%86%E8%B4%A7%E5%B8%81%E7%9B%91%E7%AE%A1-%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF/">数字资产 - 加密货币监管 - 区块链技术</a>
+        <span class="badge">(448)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E6%89%A9%E5%B1%95%E6%80%A7%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88-%E5%8A%A0%E5%AF%86%E8%B4%A7%E5%B8%81%E7%9B%91%E7%AE%A1/">数字资产 - 扩展性解决方案 - 加密货币监管</a>
+        <span class="badge">(6)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E5%8E%BB%E4%B8%AD%E5%BF%83%E5%8C%96%E9%87%91%E8%9E%8D-%E5%8A%A0%E5%AF%86%E8%B4%A7%E5%B8%81%E7%9B%91%E7%AE%A1/">数字资产 - 去中心化金融 - 加密货币监管</a>
+        <span class="badge">(109)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E5%8A%A0%E5%AF%86%E8%B4%A7%E5%B8%81-%E4%BA%A4%E6%98%93%E5%B9%B3%E5%8F%B0/">数字资产 - 加密货币 - 交易平台</a>
+        <span class="badge">(12)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E6%89%A9%E5%B1%95%E6%80%A7%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88-%E5%8E%BB%E4%B8%AD%E5%BF%83%E5%8C%96%E9%87%91%E8%9E%8D/">数字资产 - 扩展性解决方案 - 去中心化金融</a>
+        <span class="badge">(90)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E6%89%A9%E5%B1%95%E6%80%A7%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88-%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF/">数字资产 - 扩展性解决方案 - 区块链技术</a>
+        <span class="badge">(199)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF-%E9%9D%9E%E5%90%8C%E8%B4%A8%E5%8C%96%E4%BB%A3%E5%B8%81/">数字资产 - 区块链技术 - 非同质化代币</a>
+        <span class="badge">(67)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E5%8A%A0%E5%AF%86%E8%B4%A7%E5%B8%81%E7%9B%91%E7%AE%A1-%E5%8C%BF%E5%90%8D%E5%8A%A0%E5%AF%86%E8%B4%A7%E5%B8%81/">数字资产 - 加密货币监管 - 匿名加密货币</a>
+        <span class="badge">(8)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E4%BA%A4%E6%98%93%E5%B9%B3%E5%8F%B0-%E4%BA%A4%E6%98%93%E7%AD%96%E7%95%A5/">数字资产 - 交易平台 - 交易策略</a>
+        <span class="badge">(30)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E5%8C%BF%E5%90%8D%E5%8A%A0%E5%AF%86%E8%B4%A7%E5%B8%81-%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF/">数字资产 - 匿名加密货币 - 区块链技术</a>
+        <span class="badge">(36)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E8%B5%84%E4%BA%A7%E5%AE%89%E5%85%A8-%E4%BA%A4%E6%98%93%E5%B9%B3%E5%8F%B0/">数字资产 - 资产安全 - 交易平台</a>
+        <span class="badge">(58)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF-%E5%B8%82%E5%9C%BA%E8%B6%8B%E5%8A%BF/">数字资产 - 区块链技术 - 市场趋势</a>
+        <span class="badge">(11)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E4%BA%A4%E6%98%93%E5%B9%B3%E5%8F%B0-%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF/">数字资产 - 交易平台 - 区块链技术</a>
+        <span class="badge">(372)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E5%8A%A0%E5%AF%86%E8%B4%A7%E5%B8%81%E7%9B%91%E7%AE%A1-%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E4%BA%A4%E6%98%93%E5%B9%B3%E5%8F%B0/">加密货币监管 - 数字资产 - 交易平台</a>
+        <span class="badge">(5)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E5%B8%82%E5%9C%BA%E8%B6%8B%E5%8A%BF-%E4%BA%A4%E6%98%93%E5%B9%B3%E5%8F%B0/">数字资产 - 市场趋势 - 交易平台</a>
+        <span class="badge">(12)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E6%89%A9%E5%B1%95%E6%80%A7%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88-%E5%8C%BF%E5%90%8D%E5%8A%A0%E5%AF%86%E8%B4%A7%E5%B8%81/">数字资产 - 扩展性解决方案 - 匿名加密货币</a>
+        <span class="badge">(2)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E5%8A%A0%E5%AF%86%E8%B4%A7%E5%B8%81%E7%9B%91%E7%AE%A1-%E4%BA%A4%E6%98%93%E7%AD%96%E7%95%A5/">数字资产 - 加密货币监管 - 交易策略</a>
+        <span class="badge">(4)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E9%9D%9E%E5%90%8C%E8%B4%A8%E5%8C%96%E4%BB%A3%E5%B8%81-%E4%BA%A4%E6%98%93%E7%AD%96%E7%95%A5/">数字资产 - 非同质化代币 - 交易策略</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E4%BA%A4%E6%98%93%E5%B9%B3%E5%8F%B0-%E5%8C%BA%E5%9D%97%E9%93%BE%E5%BA%94%E7%94%A8/">数字资产 - 交易平台 - 区块链应用</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E9%9D%9E%E5%90%8C%E8%B4%A8%E5%8C%96%E4%BB%A3%E5%B8%81-%E5%8C%BA%E5%9D%97%E9%93%BE%E4%BA%92%E6%93%8D%E4%BD%9C%E6%80%A7/">数字资产 - 非同质化代币 - 区块链互操作性</a>
+        <span class="badge">(42)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E5%8C%BA%E5%9D%97%E9%93%BE%E5%BA%94%E7%94%A8-%E4%BA%A4%E6%98%93%E5%B9%B3%E5%8F%B0/">数字资产 - 区块链应用 - 交易平台</a>
+        <span class="badge">(463)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E5%8C%BA%E5%9D%97%E9%93%BE%E4%BA%92%E6%93%8D%E4%BD%9C%E6%80%A7-%E4%BA%A4%E6%98%93%E5%B9%B3%E5%8F%B0/">数字资产 - 区块链互操作性 - 交易平台</a>
+        <span class="badge">(87)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E9%9D%9E%E5%90%8C%E8%B4%A8%E5%8C%96%E4%BB%A3%E5%B8%81-%E5%8C%BA%E5%9D%97%E9%93%BE%E7%89%B9%E6%80%A7/">数字资产 - 非同质化代币 - 区块链特性</a>
+        <span class="badge">(8)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E9%9D%9E%E5%90%8C%E8%B4%A8%E5%8C%96%E4%BB%A3%E5%B8%81-%E5%8C%BA%E5%9D%97%E9%93%BE%E5%BA%94%E7%94%A8/">数字资产 - 非同质化代币 - 区块链应用</a>
+        <span class="badge">(53)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF-%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E6%89%A9%E5%B1%95%E6%80%A7%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">区块链技术 - 数字资产 - 扩展性解决方案</a>
+        <span class="badge">(8)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E5%8C%BA%E5%9D%97%E9%93%BE%E4%BA%92%E6%93%8D%E4%BD%9C%E6%80%A7-%E5%8C%BA%E5%9D%97%E9%93%BE%E7%89%B9%E6%80%A7/">数字资产 - 区块链互操作性 - 区块链特性</a>
+        <span class="badge">(28)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E5%8A%A0%E5%AF%86%E7%BB%8F%E6%B5%8E%E5%AD%A6-%E4%BA%A4%E6%98%93%E5%B9%B3%E5%8F%B0/">数字资产 - 加密经济学 - 交易平台</a>
+        <span class="badge">(14)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E9%9D%9E%E5%90%8C%E8%B4%A8%E5%8C%96%E4%BB%A3%E5%B8%81-%E4%BA%A4%E6%98%93%E5%B9%B3%E5%8F%B0/">数字资产 - 非同质化代币 - 交易平台</a>
+        <span class="badge">(18)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E5%8A%A0%E5%AF%86%E7%BB%8F%E6%B5%8E%E5%AD%A6-%E5%8C%BA%E5%9D%97%E9%93%BE%E5%BA%94%E7%94%A8/">数字资产 - 加密经济学 - 区块链应用</a>
+        <span class="badge">(15)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E5%8C%BA%E5%9D%97%E9%93%BE%E5%BA%94%E7%94%A8-%E5%B8%82%E5%9C%BA%E8%B6%8B%E5%8A%BF/">数字资产 - 区块链应用 - 市场趋势</a>
+        <span class="badge">(4)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E5%8C%BA%E5%9D%97%E9%93%BE%E4%BA%92%E6%93%8D%E4%BD%9C%E6%80%A7-%E8%B5%84%E4%BA%A7%E5%AE%89%E5%85%A8/">数字资产 - 区块链互操作性 - 资产安全</a>
+        <span class="badge">(3)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E5%8C%BA%E5%9D%97%E9%93%BE%E4%BA%92%E6%93%8D%E4%BD%9C%E6%80%A7-%E5%8A%A0%E5%AF%86%E7%BB%8F%E6%B5%8E%E5%AD%A6/">数字资产 - 区块链互操作性 - 加密经济学</a>
+        <span class="badge">(4)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E4%BA%A4%E6%98%93%E5%B9%B3%E5%8F%B0-%E5%8C%BA%E5%9D%97%E9%93%BE%E7%89%B9%E6%80%A7/">数字资产 - 交易平台 - 区块链特性</a>
+        <span class="badge">(4)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E5%8A%A0%E5%AF%86%E7%BB%8F%E6%B5%8E%E5%AD%A6-%E8%B5%84%E4%BA%A7%E5%AE%89%E5%85%A8/">数字资产 - 加密经济学 - 资产安全</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E9%9D%9E%E5%90%8C%E8%B4%A8%E5%8C%96%E4%BB%A3%E5%B8%81-%E5%8A%A0%E5%AF%86%E7%BB%8F%E6%B5%8E%E5%AD%A6/">数字资产 - 非同质化代币 - 加密经济学</a>
+        <span class="badge">(3)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E5%8C%BA%E5%9D%97%E9%93%BE%E7%89%B9%E6%80%A7-%E4%BA%A4%E6%98%93%E5%B9%B3%E5%8F%B0/">数字资产 - 区块链特性 - 交易平台</a>
+        <span class="badge">(4)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E5%8A%A0%E5%AF%86%E7%BB%8F%E6%B5%8E%E5%AD%A6-%E5%8C%BA%E5%9D%97%E9%93%BE%E7%89%B9%E6%80%A7/">数字资产 - 加密经济学 - 区块链特性</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E9%9D%9E%E5%90%8C%E8%B4%A8%E5%8C%96%E4%BB%A3%E5%B8%81-%E8%B5%84%E4%BA%A7%E5%AE%89%E5%85%A8/">数字资产 - 非同质化代币 - 资产安全</a>
+        <span class="badge">(3)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E5%8C%BA%E5%9D%97%E9%93%BE%E4%BA%92%E6%93%8D%E4%BD%9C%E6%80%A7-%E5%B8%82%E5%9C%BA%E8%B6%8B%E5%8A%BF/">数字资产 - 区块链互操作性 - 市场趋势</a>
+        <span class="badge">(2)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E8%B5%84%E4%BA%A7%E5%AE%89%E5%85%A8-%E4%BA%A4%E6%98%93%E7%AD%96%E7%95%A5-%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7/">资产安全 - 交易策略 - 数字资产</a>
+        <span class="badge">(6)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E5%8A%A0%E5%AF%86%E8%B4%A7%E5%B8%81-%E4%BA%A4%E6%98%93%E7%AD%96%E7%95%A5-%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7/">加密货币 - 交易策略 - 数字资产</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF-%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E5%8C%BA%E5%9D%97%E9%93%BE%E4%BA%92%E6%93%8D%E4%BD%9C%E6%80%A7/">区块链技术 - 数字资产 - 区块链互操作性</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7-%E4%BA%A4%E6%98%93%E5%B9%B3%E5%8F%B0-%E5%8E%BB%E4%B8%AD%E5%BF%83%E5%8C%96%E9%87%91%E8%9E%8D/">数字资产 - 交易平台 - 去中心化金融</a>
+        <span class="badge">(2)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/%E4%BA%A4%E6%98%93%E7%AD%96%E7%95%A5-%E5%B8%82%E5%9C%BA%E8%B6%8B%E5%8A%BF-%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7/">交易策略 - 市场趋势 - 数字资产</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+</ul>
+    </section>
+
+    
+    <section class="widget">
+        <h3 class="widget-hd"><strong>热门标签</strong></h3>
+        <!-- 文章标签 -->
+<div class="widget-bd tag-wrap">
+  
+    <a class="tag-item" href="/tags/%E8%A1%8C%E6%83%85-%E4%BA%A4%E6%98%93%E6%89%80-%E5%88%86%E5%B8%83%E5%BC%8F%E8%B4%A6%E6%9C%AC-Solidity-%E5%8D%96%E5%87%BA/" title="行情 - 交易所 - 分布式账本 - Solidity - 卖出">行情 - 交易所 - 分布式账本 - Solidity - 卖出 (594)</a>
+  
+    <a class="tag-item" href="/tags/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6-%E8%A1%8C%E6%83%85-%E4%BA%A4%E6%98%93%E6%89%80-%E5%88%86%E5%B8%83%E5%BC%8F%E8%B4%A6%E6%9C%AC-Solidity/" title="智能合约 - 行情 - 交易所 - 分布式账本 - Solidity">智能合约 - 行情 - 交易所 - 分布式账本 - Solidity (548)</a>
+  
+    <a class="tag-item" href="/tags/%E4%B8%AD%E5%BF%83%E5%8C%96%E4%BA%A4%E6%98%93%E6%89%80-%E5%8E%BB%E4%B8%AD%E5%BF%83%E5%8C%96-%E4%B9%B0%E5%85%A5-POS-AML/" title="中心化交易所 - 去中心化 - 买入 - POS - AML">中心化交易所 - 去中心化 - 买入 - POS - AML (463)</a>
+  
+    <a class="tag-item" href="/tags/%E8%A1%8C%E6%83%85-%E4%BA%A4%E6%98%93%E6%89%80-%E5%88%86%E5%B8%83%E5%BC%8F%E8%B4%A6%E6%9C%AC-%E5%8D%96%E5%87%BA-%E6%9D%A0%E6%9D%86/" title="行情 - 交易所 - 分布式账本 - 卖出 - 杠杆">行情 - 交易所 - 分布式账本 - 卖出 - 杠杆 (404)</a>
+  
+    <a class="tag-item" href="/tags/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6-%E8%A1%8C%E6%83%85-%E4%BA%A4%E6%98%93%E6%89%80-%E5%88%86%E5%B8%83%E5%BC%8F%E8%B4%A6%E6%9C%AC-%E5%8D%96%E5%87%BA/" title="智能合约 - 行情 - 交易所 - 分布式账本 - 卖出">智能合约 - 行情 - 交易所 - 分布式账本 - 卖出 (348)</a>
+  
+    <a class="tag-item" href="/tags/%E4%B8%AD%E5%BF%83%E5%8C%96%E4%BA%A4%E6%98%93%E6%89%80-%E5%80%9F%E8%B4%B7-%E5%8E%BB%E4%B8%AD%E5%BF%83%E5%8C%96-%E4%B9%B0%E5%85%A5-%E6%94%AF%E6%92%91/" title="中心化交易所 - 借贷 - 去中心化 - 买入 - 支撑">中心化交易所 - 借贷 - 去中心化 - 买入 - 支撑 (323)</a>
+  
+    <a class="tag-item" href="/tags/POW-%E5%8E%BB%E4%B8%AD%E5%BF%83%E5%8C%96%E4%BA%A4%E6%98%93%E6%89%80-%E5%8D%96%E5%87%BA-%E8%AE%A2%E5%8D%95%E7%B0%BF-%E6%B5%81%E5%8A%A8%E6%80%A7/" title="POW - 去中心化交易所 - 卖出 - 订单簿 - 流动性">POW - 去中心化交易所 - 卖出 - 订单簿 - 流动性 (319)</a>
+  
+    <a class="tag-item" href="/tags/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6-%E5%8E%BB%E4%B8%AD%E5%BF%83%E5%8C%96%E9%87%91%E8%9E%8D-%E8%A1%8C%E6%83%85-%E4%BA%A4%E6%98%93%E6%89%80-%E5%88%86%E5%B8%83%E5%BC%8F%E8%B4%A6%E6%9C%AC/" title="智能合约 - 去中心化金融 - 行情 - 交易所 - 分布式账本">智能合约 - 去中心化金融 - 行情 - 交易所 - 分布式账本 (306)</a>
+  
+    <a class="tag-item" href="/tags/%E4%B8%AD%E5%BF%83%E5%8C%96%E4%BA%A4%E6%98%93%E6%89%80-%E5%8E%BB%E4%B8%AD%E5%BF%83%E5%8C%96-%E4%B9%B0%E5%85%A5-POS-%E4%B8%8D%E5%8F%AF%E7%AF%A1%E6%94%B9/" title="中心化交易所 - 去中心化 - 买入 - POS - 不可篡改">中心化交易所 - 去中心化 - 买入 - POS - 不可篡改 (298)</a>
+  
+    <a class="tag-item" href="/tags/%E4%B8%AD%E5%BF%83%E5%8C%96%E4%BA%A4%E6%98%93%E6%89%80-%E5%8E%BB%E4%B8%AD%E5%BF%83%E5%8C%96-%E4%B9%B0%E5%85%A5-%E6%94%AF%E6%92%91-POS/" title="中心化交易所 - 去中心化 - 买入 - 支撑 - POS">中心化交易所 - 去中心化 - 买入 - 支撑 - POS (274)</a>
+  
+    <a class="tag-item" href="/tags/%E4%B8%AD%E5%BF%83%E5%8C%96%E4%BA%A4%E6%98%93%E6%89%80-%E5%80%9F%E8%B4%B7-%E5%8E%BB%E4%B8%AD%E5%BF%83%E5%8C%96-%E4%B9%B0%E5%85%A5-%E9%9D%9E%E5%90%8C%E8%B4%A8%E5%8C%96%E4%BB%A3%E5%B8%81/" title="中心化交易所 - 借贷 - 去中心化 - 买入 - 非同质化代币">中心化交易所 - 借贷 - 去中心化 - 买入 - 非同质化代币 (273)</a>
+  
+    <a class="tag-item" href="/tags/POW-%E5%8E%BB%E4%B8%AD%E5%BF%83%E5%8C%96%E4%BA%A4%E6%98%93%E6%89%80-%E5%80%9F%E8%B4%B7-%E5%8D%96%E5%87%BA-%E8%AE%A2%E5%8D%95%E7%B0%BF/" title="POW - 去中心化交易所 - 借贷 - 卖出 - 订单簿">POW - 去中心化交易所 - 借贷 - 卖出 - 订单簿 (265)</a>
+  
+    <a class="tag-item" href="/tags/%E4%B8%AD%E5%BF%83%E5%8C%96%E4%BA%A4%E6%98%93%E6%89%80-%E5%8E%BB%E4%B8%AD%E5%BF%83%E5%8C%96-%E4%B9%B0%E5%85%A5-AML-%E4%B8%8D%E5%8F%AF%E7%AF%A1%E6%94%B9/" title="中心化交易所 - 去中心化 - 买入 - AML - 不可篡改">中心化交易所 - 去中心化 - 买入 - AML - 不可篡改 (223)</a>
+  
+    <a class="tag-item" href="/tags/%E4%B8%AD%E5%BF%83%E5%8C%96%E4%BA%A4%E6%98%93%E6%89%80-%E5%80%9F%E8%B4%B7-%E5%8E%BB%E4%B8%AD%E5%BF%83%E5%8C%96-%E4%B9%B0%E5%85%A5-POS/" title="中心化交易所 - 借贷 - 去中心化 - 买入 - POS">中心化交易所 - 借贷 - 去中心化 - 买入 - POS (194)</a>
+  
+    <a class="tag-item" href="/tags/%E4%B8%8D%E5%8F%AF%E7%AF%A1%E6%94%B9-%E5%8E%BB%E4%B8%AD%E5%BF%83%E5%8C%96-%E5%8E%BB%E4%BF%A1%E4%BB%BB-POS-%E4%BB%A5%E5%A4%AA%E5%9D%8A/" title="不可篡改 - 去中心化 - 去信任 - POS - 以太坊">不可篡改 - 去中心化 - 去信任 - POS - 以太坊 (163)</a>
+  
+    <a class="tag-item" href="/tags/%E4%B8%AD%E5%BF%83%E5%8C%96%E4%BA%A4%E6%98%93%E6%89%80-%E5%8E%BB%E4%B8%AD%E5%BF%83%E5%8C%96-%E4%B9%B0%E5%85%A5-%E6%94%AF%E6%92%91-%E7%89%9B%E5%B8%82/" title="中心化交易所 - 去中心化 - 买入 - 支撑 - 牛市">中心化交易所 - 去中心化 - 买入 - 支撑 - 牛市 (161)</a>
+  
+    <a class="tag-item" href="/tags/%E5%8E%BB%E4%B8%AD%E5%BF%83%E5%8C%96%E9%87%91%E8%9E%8D-%E8%A1%8C%E6%83%85-%E4%BA%A4%E6%98%93%E6%89%80-%E5%88%86%E5%B8%83%E5%BC%8F%E8%B4%A6%E6%9C%AC-Solidity/" title="去中心化金融 - 行情 - 交易所 - 分布式账本 - Solidity">去中心化金融 - 行情 - 交易所 - 分布式账本 - Solidity (160)</a>
+  
+    <a class="tag-item" href="/tags/%E4%B8%AD%E5%BF%83%E5%8C%96%E4%BA%A4%E6%98%93%E6%89%80-%E5%80%9F%E8%B4%B7-Rollup-%E5%8E%BB%E4%B8%AD%E5%BF%83%E5%8C%96-%E4%B9%B0%E5%85%A5/" title="中心化交易所 - 借贷 - Rollup - 去中心化 - 买入">中心化交易所 - 借贷 - Rollup - 去中心化 - 买入 (159)</a>
+  
+    <a class="tag-item" href="/tags/%E4%B8%8D%E5%8F%AF%E7%AF%A1%E6%94%B9-%E5%8E%BB%E4%B8%AD%E5%BF%83%E5%8C%96-%E5%8E%BB%E4%BF%A1%E4%BB%BB-%E4%BB%A5%E5%A4%AA%E5%9D%8A-%E6%95%B0%E5%AD%97%E9%BB%84%E9%87%91/" title="不可篡改 - 去中心化 - 去信任 - 以太坊 - 数字黄金">不可篡改 - 去中心化 - 去信任 - 以太坊 - 数字黄金 (143)</a>
+  
+    <a class="tag-item" href="/tags/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6-%E5%8E%BB%E4%B8%AD%E5%BF%83%E5%8C%96%E9%87%91%E8%9E%8D-%E8%A1%8C%E6%83%85-%E4%BA%A4%E6%98%93%E6%89%80-%E5%85%83%E5%AE%87%E5%AE%99/" title="智能合约 - 去中心化金融 - 行情 - 交易所 - 元宇宙">智能合约 - 去中心化金融 - 行情 - 交易所 - 元宇宙 (134)</a>
+  
+    <a class="tag-item" href="/tags/%E7%8E%B0%E8%B4%A7-%E6%9D%A0%E6%9D%86-%E6%9C%9F%E8%B4%A7-%E7%A1%AC%E4%BB%B6%E9%92%B1%E5%8C%85-%E8%A1%8C%E6%83%85/" title="现货 - 杠杆 - 期货 - 硬件钱包 - 行情">现货 - 杠杆 - 期货 - 硬件钱包 - 行情 (132)</a>
+  
+    <a class="tag-item" href="/tags/%E4%B8%AD%E5%BF%83%E5%8C%96%E4%BA%A4%E6%98%93%E6%89%80-%E5%8E%BB%E4%B8%AD%E5%BF%83%E5%8C%96-%E4%B9%B0%E5%85%A5-%E7%89%9B%E5%B8%82-POS/" title="中心化交易所 - 去中心化 - 买入 - 牛市 - POS">中心化交易所 - 去中心化 - 买入 - 牛市 - POS (124)</a>
+  
+    <a class="tag-item" href="/tags/%E4%B8%AD%E5%BF%83%E5%8C%96%E4%BA%A4%E6%98%93%E6%89%80-%E5%8E%BB%E4%B8%AD%E5%BF%83%E5%8C%96-%E4%B9%B0%E5%85%A5-POS-BTC/" title="中心化交易所 - 去中心化 - 买入 - POS - BTC">中心化交易所 - 去中心化 - 买入 - POS - BTC (122)</a>
+  
+    <a class="tag-item" href="/tags/%E4%B8%AD%E5%BF%83%E5%8C%96%E4%BA%A4%E6%98%93%E6%89%80-%E4%B9%B0%E5%85%A5-AML-%E6%B3%95%E5%BE%8B-%E6%94%BF%E7%AD%96/" title="中心化交易所 - 买入 - AML - 法律 - 政策">中心化交易所 - 买入 - AML - 法律 - 政策 (119)</a>
+  
+    <a class="tag-item" href="/tags/%E4%B8%AD%E5%BF%83%E5%8C%96%E4%BA%A4%E6%98%93%E6%89%80-%E5%8E%BB%E4%B8%AD%E5%BF%83%E5%8C%96-%E4%B9%B0%E5%85%A5-%E4%B8%8D%E5%8F%AF%E7%AF%A1%E6%94%B9-%E7%8E%B0%E8%B4%A7/" title="中心化交易所 - 去中心化 - 买入 - 不可篡改 - 现货">中心化交易所 - 去中心化 - 买入 - 不可篡改 - 现货 (112)</a>
+  
+    <a class="tag-item" href="/tags/%E5%90%88%E8%A7%84-%E4%B8%8D%E5%8F%AF%E7%AF%A1%E6%94%B9-%E5%8E%BB%E4%B8%AD%E5%BF%83%E5%8C%96-%E5%8E%BB%E4%BF%A1%E4%BB%BB-%E4%BB%A5%E5%A4%AA%E5%9D%8A/" title="合规 - 不可篡改 - 去中心化 - 去信任 - 以太坊">合规 - 不可篡改 - 去中心化 - 去信任 - 以太坊 (108)</a>
+  
+    <a class="tag-item" href="/tags/%E5%8E%BB%E4%B8%AD%E5%BF%83%E5%8C%96%E4%BA%A4%E6%98%93%E6%89%80-%E5%8D%96%E5%87%BA-%E8%AE%A2%E5%8D%95%E7%B0%BF-%E6%B5%81%E5%8A%A8%E6%80%A7-POS/" title="去中心化交易所 - 卖出 - 订单簿 - 流动性 - POS">去中心化交易所 - 卖出 - 订单簿 - 流动性 - POS (94)</a>
+  
+    <a class="tag-item" href="/tags/%E5%8E%BB%E4%B8%AD%E5%BF%83%E5%8C%96-POW-%E8%AE%A2%E5%8D%95%E7%B0%BF-gas%E8%B4%B9-%E5%8E%BB%E4%BF%A1%E4%BB%BB/" title="去中心化 - POW - 订单簿 - gas费 - 去信任">去中心化 - POW - 订单簿 - gas费 - 去信任 (91)</a>
+  
+    <a class="tag-item" href="/tags/%E4%B8%8D%E5%8F%AF%E7%AF%A1%E6%94%B9-%E5%8E%BB%E4%B8%AD%E5%BF%83%E5%8C%96-%E5%A4%9A%E9%93%BE-%E5%8E%BB%E4%BF%A1%E4%BB%BB-POS/" title="不可篡改 - 去中心化 - 多链 - 去信任 - POS">不可篡改 - 去中心化 - 多链 - 去信任 - POS (90)</a>
+  
+    <a class="tag-item" href="/tags/%E5%8E%BB%E4%B8%AD%E5%BF%83%E5%8C%96%E9%87%91%E8%9E%8D-%E8%A1%8C%E6%83%85-%E4%BA%A4%E6%98%93%E6%89%80-Solidity-%E5%8D%96%E5%87%BA/" title="去中心化金融 - 行情 - 交易所 - Solidity - 卖出">去中心化金融 - 行情 - 交易所 - Solidity - 卖出 (89)</a>
+  
+    <a class="tag-item" href="/tags/%E5%8E%BB%E4%B8%AD%E5%BF%83%E5%8C%96%E4%BA%A4%E6%98%93%E6%89%80-%E5%8D%96%E5%87%BA-%E8%AE%A2%E5%8D%95%E7%B0%BF-AML-%E6%B5%81%E5%8A%A8%E6%80%A7/" title="去中心化交易所 - 卖出 - 订单簿 - AML - 流动性">去中心化交易所 - 卖出 - 订单簿 - AML - 流动性 (87)</a>
+  
+    <a class="tag-item" href="/tags/%E7%8E%B0%E8%B4%A7-%E6%9D%A0%E6%9D%86-%E6%9C%9F%E8%B4%A7-%E4%B8%AD%E5%BF%83%E5%8C%96%E4%BA%A4%E6%98%93%E6%89%80-%E8%A1%8C%E6%83%85/" title="现货 - 杠杆 - 期货 - 中心化交易所 - 行情">现货 - 杠杆 - 期货 - 中心化交易所 - 行情 (85)</a>
+  
+    <a class="tag-item" href="/tags/%E4%B8%8D%E5%8F%AF%E7%AF%A1%E6%94%B9-%E5%8E%BB%E4%B8%AD%E5%BF%83%E5%8C%96-%E5%8E%BB%E4%BF%A1%E4%BB%BB-%E4%BB%A5%E5%A4%AA%E5%9D%8A-%E6%9D%A0%E6%9D%86/" title="不可篡改 - 去中心化 - 去信任 - 以太坊 - 杠杆">不可篡改 - 去中心化 - 去信任 - 以太坊 - 杠杆 (84)</a>
+  
+    <a class="tag-item" href="/tags/%E4%B8%8D%E5%8F%AF%E7%AF%A1%E6%94%B9-%E5%8E%BB%E4%B8%AD%E5%BF%83%E5%8C%96-%E6%95%B0%E5%AD%97%E9%BB%84%E9%87%91-%E6%9D%A0%E6%9D%86-%E5%88%86%E5%B8%83%E5%BC%8F%E8%B4%A6%E6%9C%AC/" title="不可篡改 - 去中心化 - 数字黄金 - 杠杆 - 分布式账本">不可篡改 - 去中心化 - 数字黄金 - 杠杆 - 分布式账本 (80)</a>
+  
+    <a class="tag-item" href="/tags/%E4%B8%8D%E5%8F%AF%E7%AF%A1%E6%94%B9-%E5%8E%BB%E4%B8%AD%E5%BF%83%E5%8C%96-%E5%A4%9A%E9%93%BE-%E5%8E%BB%E4%BF%A1%E4%BB%BB-%E4%BB%A5%E5%A4%AA%E5%9D%8A/" title="不可篡改 - 去中心化 - 多链 - 去信任 - 以太坊">不可篡改 - 去中心化 - 多链 - 去信任 - 以太坊 (77)</a>
+  
+    <a class="tag-item" href="/tags/POW-%E5%8E%BB%E4%B8%AD%E5%BF%83%E5%8C%96%E4%BA%A4%E6%98%93%E6%89%80-%E5%8D%96%E5%87%BA-%E8%AE%A2%E5%8D%95%E7%B0%BF-%E4%BA%92%E6%93%8D%E4%BD%9C%E6%80%A7/" title="POW - 去中心化交易所 - 卖出 - 订单簿 - 互操作性">POW - 去中心化交易所 - 卖出 - 订单簿 - 互操作性 (74)</a>
+  
+    <a class="tag-item" href="/tags/%E4%B8%8D%E5%8F%AF%E7%AF%A1%E6%94%B9-%E5%8E%BB%E4%B8%AD%E5%BF%83%E5%8C%96-%E5%8E%BB%E4%BF%A1%E4%BB%BB-Rollup-POS/" title="不可篡改 - 去中心化 - 去信任 - Rollup - POS">不可篡改 - 去中心化 - 去信任 - Rollup - POS (70)</a>
+  
+    <a class="tag-item" href="/tags/%E5%8E%BB%E4%B8%AD%E5%BF%83%E5%8C%96%E4%BA%A4%E6%98%93%E6%89%80-%E5%80%9F%E8%B4%B7-%E5%8D%96%E5%87%BA-%E8%AE%A2%E5%8D%95%E7%B0%BF-%E4%BA%92%E6%93%8D%E4%BD%9C%E6%80%A7/" title="去中心化交易所 - 借贷 - 卖出 - 订单簿 - 互操作性">去中心化交易所 - 借贷 - 卖出 - 订单簿 - 互操作性 (70)</a>
+  
+    <a class="tag-item" href="/tags/%E4%B8%AD%E5%BF%83%E5%8C%96%E4%BA%A4%E6%98%93%E6%89%80-%E5%8E%BB%E4%B8%AD%E5%BF%83%E5%8C%96-%E4%B9%B0%E5%85%A5-%E4%B8%8D%E5%8F%AF%E7%AF%A1%E6%94%B9-BTC/" title="中心化交易所 - 去中心化 - 买入 - 不可篡改 - BTC">中心化交易所 - 去中心化 - 买入 - 不可篡改 - BTC (69)</a>
+  
+</div>
+    </section>
+    
+
+    
+
+    
+    <!-- 友情链接 -->
+    <section class="widget">
+        <h3 class="widget-hd"><strong>友情链接</strong></h3>
+        <!-- 文章分类 -->
+<ul class="widget-bd">
+    
+        <li>
+            <a href="https://github.com/front-end-pigs/blog" target="_blank" title="Github博客">Github博客</a>
+        </li>
+    
+        <li>
+            <a href="https://jelon.info" target="_blank" title="Jelon博客">Jelon博客</a>
+        </li>
+    
+</ul>
+    </section>
+    
+</aside>
+<!-- / 侧栏部分 -->
+    </div>
+
+    <!-- 博客底部 -->
+    <footer class="footer">
+    &copy;
+    
+        2014-2024
+    
+
+    <a href="/">Jelon Loves You</a>
+</footer>
+<div class="back-to-top" id="JELON__backToTop" title="返回顶部">返回顶部</div>
+
+    <!--博客js脚本 -->
+    <!-- 这里放网站js脚本 -->
+
+<script src="/js/main.js?v=1719664672608.js"></script>
+
+
+</body>
+</html>
